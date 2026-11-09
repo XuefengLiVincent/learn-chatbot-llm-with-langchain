@@ -1,5 +1,5 @@
 import os
-
+import streamlit as st
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_core.prompts import PromptTemplate
@@ -29,8 +29,8 @@ from langchain_openai import ChatOpenAI
 
 load_dotenv()
 
-DATABRICKS_API_KEY = os.environ["DATABRICKS_API_KEY"]
-DATABRICKS_BASE_URL = os.environ["DATABRICKS_BASE_URL"]
+DATABRICKS_API_KEY = st.secrets["DATABRICKS_API_KEY"]
+DATABRICKS_BASE_URL = st.secrets["DATABRICKS_BASE_URL"]
 
 llm = ChatOpenAI(
     api_key=DATABRICKS_API_KEY,
